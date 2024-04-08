@@ -1,0 +1,57 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+#define SIZE 3
+
+typedef struct 
+{
+    char AM[10];
+    float grade;
+} Student;
+
+int compare_students(const void *a, const void *b) 
+{
+    return strcmp(((Student *)b)->AM, ((Student *)a)->AM);
+}
+
+int main() 
+ {
+ 	system ("CHCP 1253>nul");
+    Student students[SIZE];
+
+    // ÅéóáãùãÞ äåäïìÝíùí ãéá SIZE ìáèçôÝò
+    printf("ÅÉÓÁÃÅÔÅ ÁÑÉÈÌÏ ÌÇÔÑÙÏÕ ÌÁÈÇÔÇ ÊÁÉ ÂÁÈÌÏ ÃÉÁ %d ÌÁÈÇÔÅÓ:\n", SIZE);
+    for (int i = 0; i < SIZE; i++) {
+        printf("ÌÁÈÇÔÇÓ %d:\n", i + 1);
+        printf("ÁÑÉÈÌÏÓ ÌÇÔÑÙÏÕ: ");
+        if (scanf("%9s", students[i].AM) != 1) {
+            printf("ÌÇ ÅÃÊÕÑÇ ÅÉÓÏÄÏÓ ÁÑÉÈÌÏÓ ÌÇÔÑÙÏÕ.\n");
+            return 1;
+        }
+        printf("ÂÁÈÌÏÓ: ");
+        if (scanf("%f", &students[i].grade) != 1 || students[i].grade < 0 || students[i].grade > 10) {
+            printf("ÌÇ ÅÃÊÕÑÇ ÅÉÓÁÃÙÃÇ ÂÁÈÌÏÕ.\n");
+            return 1;
+        }
+    }
+
+    //Åêôýðùóç áñ÷éêÞò âÜóçò äåäïìÝíùí
+    printf("\nÁÑ×ÉÊÇ ÂÁÓÇ ÄÅÄÏÌÅÍÙÍ:\n");
+    printf("%-15s %-5s\n", "AM", "Grade");
+    for (int i = 0; i < SIZE; i++) {
+        printf("%-15s %-5.2f\n", students[i].AM, students[i].grade);
+    }
+
+    // Ôáîéíüìçóç ôùí ìáèçôþí ìå âÜóç ôï AM óå öèßíïõóá óåéñÜ
+    qsort(students, SIZE, sizeof(Student), compare_students);
+
+    // Åêôýðùóç ôáîéíïìçìÝíçò âÜóçò äåäïìÝíùí
+    printf("\nÔÁÎÉÍÏÌÇÌÅÍÇ ÂÁÓÇ ÄÅÄÏÌÅÍÙÍ\n");
+    printf("%-15s %-5s\n", "AM", "Grade");
+    for (int i = 0; i < SIZE; i++) {
+        printf("%-15s %-5.2f\n", students[i].AM, students[i].grade);
+    }
+
+    return 0;
+}
