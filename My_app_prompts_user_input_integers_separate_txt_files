@@ -1,0 +1,40 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(int argc, char **argv)
+{
+    FILE *file;
+    int x, y;
+    
+    // Writing the first integer to First.txt
+    file = fopen("First.txt", "w");
+    printf("Give 1st integer: ");
+    scanf("%d", &x);
+    fprintf(file, "%d", x);
+    fclose(file);
+    
+    // Writing the second integer to Second.txt
+    file = fopen("Second.txt", "w");
+    printf("Give 2nd integer: ");
+    scanf("%d", &y);
+    fprintf(file, "%d", y);
+    fclose(file);
+    
+    // Reading the first integer from First.txt
+    file = fopen("First.txt", "r");
+    fscanf(file, "%d", &x);
+    fclose(file);
+    
+    // Reading the second integer from Second.txt
+    file = fopen("Second.txt", "r");
+    fscanf(file, "%d", &y);
+    fclose(file);
+    
+    // Calculating the sum and appending it to Sum.txt
+    file = fopen("Sum.txt", "a");
+    fprintf(file, "%d", x+y);
+    fclose(file);
+    
+    system("PAUSE"); // Pause the program so the console window stays open
+    return 0;
+}
