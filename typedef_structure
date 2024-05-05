@@ -1,0 +1,26 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <stdbool.h>
+
+typedef struct 
+{
+	float x_coord, y_coord;
+	char letter;
+}Point;
+
+int main()
+{
+	Point p1;
+		
+	
+	p1.letter = 'a';
+	p1.x_coord = 1;
+	p1.y_coord = -0,5;
+	
+	printf("%c(%.2f, %.2f)\n", toupper(p1.letter), p1.x_coord, p1.y_coord);
+
+	system("PAUSE");
+	return 0;
+	
+	
+}
