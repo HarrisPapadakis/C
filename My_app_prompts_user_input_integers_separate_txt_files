@@ -3,38 +3,28 @@
 
 int main(int argc, char **argv)
 {
-    FILE *file;
-    int x, y;
+    FILE *file;  // File pointer to handle file operations
+    int x, y;    // Variables to store the integers
     
     // Writing the first integer to First.txt
-    file = fopen("First.txt", "w");
+    file = fopen("First.txt", "w");  // Open First.txt for writing (overwrite mode)
     printf("Give 1st integer: ");
-    scanf("%d", &x);
-    fprintf(file, "%d", x);
-    fclose(file);
+    scanf("%d", &x);  // Get the first integer from user input
+    fprintf(file, "%d", x);  // Write the first integer to the file
+    fclose(file);  // Close the file
     
     // Writing the second integer to Second.txt
-    file = fopen("Second.txt", "w");
+    file = fopen("Second.txt", "w");  // Open Second.txt for writing (overwrite mode)
     printf("Give 2nd integer: ");
-    scanf("%d", &y);
-    fprintf(file, "%d", y);
-    fclose(file);
+    scanf("%d", &y);  // Get the second integer from user input
+    fprintf(file, "%d", y);  // Write the second integer to the file
+    fclose(file);  // Close the file
     
     // Reading the first integer from First.txt
-    file = fopen("First.txt", "r");
-    fscanf(file, "%d", &x);
-    fclose(file);
+    file = fopen("First.txt", "r");  // Open First.txt for reading
+    fscanf(file, "%d", &x);  // Read the integer from the file into variable x
+    fclose(file);  // Close the file
     
     // Reading the second integer from Second.txt
-    file = fopen("Second.txt", "r");
-    fscanf(file, "%d", &y);
-    fclose(file);
-    
-    // Calculating the sum and appending it to Sum.txt
-    file = fopen("Sum.txt", "a");
-    fprintf(file, "%d", x+y);
-    fclose(file);
-    
-    system("PAUSE"); // Pause the program so the console window stays open
-    return 0;
-}
+    file = fopen("Second.txt", "r");  // Open Second.txt for reading
+    fscanf(file, "%d", &y);  // Read the integer from the file into variable y
